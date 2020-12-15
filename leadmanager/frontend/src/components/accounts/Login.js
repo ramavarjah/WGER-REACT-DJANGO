@@ -4,6 +4,12 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
 
+var forgotpa = {
+  position: "relative",
+  top: -67,
+  left: 82
+}
+
 export class Login extends Component {
   state = {
     username: '',
@@ -61,6 +67,9 @@ export class Login extends Component {
             </div>
             <p>
               Don't have an account? <Link to="/register">Register</Link>
+              <div styles={{  position : "relative",top: -67,left: 82}}>
+              <Link to="/forgotpassword">Forgot Password</Link>
+              </div>
             </p>
           </form>
         </div>

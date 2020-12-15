@@ -12,6 +12,8 @@ export class Leads extends Component {
 
   componentDidMount() {
     this.props.getLeads();
+    // console.log(this.props.getLeads(),"Test")
+    console.log(this.props.leads.id)
   }
 
   render() {

@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
+import {Row} from 'antd'
+// import Wgner from "../../images/Wgner.png";
+
+import { Image } from 'antd';
+var headerstyles={
+
+  backgroundColor: "2A4C7D",
+  color: "#333"
+
+}
 
 export class Header extends Component {
   static propTypes = {
@@ -15,6 +25,7 @@ export class Header extends Component {
 
     const authLinks = (
       <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
+       
         <span className="navbar-text mr-3">
           <strong>{user ? `Welcome ${user.username}` : ''}</strong>
         </span>
@@ -28,6 +39,36 @@ export class Header extends Component {
 
     const guestLinks = (
       <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
+      {/* <Image src={Wgner}></Image> */}
+        <Row style={{display:"flex",  position: "relative", right: 324}} className="dropwndown_all">
+         <li><div className="Test_Menu" class="nav-item dropdown">
+           <a href= "#" class="nav-link dropdown-toggle" data-toggle= "dropdown">Training</a>
+           <div class="dropdown-menu">
+             <a href="#" class="dropdown-item">Workouts</a>
+             <a href="#" class="dropdown-item">Workshedules</a>
+             <a href="#" class="dropdown-item">Categories</a>
+             </div>
+             </div>
+             </li>
+             <li><div className="Test_Menu" class="nav-item dropdown">
+           <a href= "#" class="nav-link dropdown-toggle" data-toggle= "dropdown">Nutrition</a>
+           <div class="dropdown-menu">
+             <a href="#" class="dropdown-item">BMI Calculator</a>
+             <a href="#" class="dropdown-item">Nutrition Plans</a>
+             <a href="#" class="dropdown-item">Daily Calories calculator</a>
+             </div>
+             </div>
+             </li>
+             <li><div className="Test_Menu" class="nav-item dropdown">
+           <a href= "#" class="nav-link dropdown-toggle" data-toggle= "dropdown">About this software</a>
+           <div class="dropdown-menu">
+             <a href="#" class="dropdown-item">Contribute</a>
+             <a href="#" class="dropdown-item">Problems and wishes</a>
+             <a href="#" class="dropdown-item">Get in Touch</a>
+             </div>
+             </div>
+             </li>
+         </Row>
         <li className="nav-item">
           <Link to="/register" className="nav-link">
             Register
@@ -42,7 +83,8 @@ export class Header extends Component {
     );
 
     return (
-      <nav className="navbar navbar-expand-sm navbar-light bg-light">
+      <div style={{backgroundColor: "#2A4C7D"}} className= "Header">
+      <nav style={{backgroundColor: "#2A4C7D"}} className="navbar navbar-expand-sm navbar-light bg-light">
         <div className="container">
           <button
             className="navbar-toggler"
@@ -57,12 +99,14 @@ export class Header extends Component {
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <a className="navbar-brand" href="#">
-              Lead Manager
+              WGER
+              {/* <img src={wgner}/> */}
             </a>
           </div>
           {isAuthenticated ? authLinks : guestLinks}
         </div>
       </nav>
+      </div>
     );
   }
 }
